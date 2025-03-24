@@ -38,7 +38,7 @@ class LinkedList {
         //   +======================================================+
         
         LinkedList(int value){
-            Node* newNode = new Node(5);
+            Node* newNode = new Node(value);
             head = newNode;
             tail = newNode;
             length = 1;
@@ -79,6 +79,20 @@ class LinkedList {
 
         int getLength() {
             return length;
+        }
+
+        void append(int value){
+            Node* newNode = new Node(value);
+            if(length == 0){
+                head = newNode;
+                tail = newNode;
+            }else{
+            // Point the next from previous tail node to  node
+            tail->next = newNode; 
+            // Move the tail to node
+            tail = newNode;
+            }
+            length++;
         }
 
 };
