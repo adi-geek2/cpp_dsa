@@ -95,6 +95,28 @@ class LinkedList {
             length++;
         }
 
+        void deleteLast(){
+            if (length == 0)return;
+            else{
+                Node* temp = head;
+                Node* pre = temp;
+                // Case 1 : List len > 1    
+                while (temp->next)
+                {
+                    pre = temp;
+                    temp = temp->next;
+                }
+                tail = pre;
+                tail->next = nullptr;
+                length--;
+                if (length == 0){
+                // Case 2 : List len = 1
+                head = nullptr;
+                tail = nullptr;
+                }
+                delete temp;
+           }
+        }
 };
 
 
