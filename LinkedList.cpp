@@ -117,6 +117,39 @@ class LinkedList {
                 delete temp;
            }
         }
+
+        void prepend(int value){
+            Node* new_node = new Node(value); 
+            if (length == 0){
+                head = new_node;
+                tail = new_node;
+            }
+            else
+            {
+                new_node->next = head;
+                head = new_node;
+            }
+            length++;
+        }
+
+        void deleteFirst(){
+            Node* temp = head;
+            if (length == 0)
+            {
+                return;
+            }
+            else if(length == 1){
+                head = nullptr;
+                tail = nullptr;
+            }
+            else
+            {
+                head = head->next;
+            }
+            delete temp;
+            temp = nullptr;
+            length--;
+        }
 };
 
 
